@@ -3,7 +3,7 @@ const boardsService = require('./board.service');
 // const { tasks } = require('../constants');
 // const tasksService = require('../tasks/task.service');
 
-const router = function (fastify, opts, done) {
+function router(fastify, opts, done) {
   fastify.get('/', async (request, reply) => {
     const boards = await boardsService.getAll();
     const boardsDataToSend = await boards.map((board) =>
@@ -40,6 +40,6 @@ const router = function (fastify, opts, done) {
   });
 
   done();
-};
+}
 
 module.exports = router;

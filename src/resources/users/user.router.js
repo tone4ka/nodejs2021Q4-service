@@ -1,7 +1,7 @@
 const User = require('./user.model');
 const usersService = require('./user.service');
 
-const router = function (fastify, opts, done) {
+function router (fastify, opts, done) {
   fastify.get('/', async (request, reply) => {
     const users = await usersService.getAll();
     const usersDataToSend = await users.map((user) => User.toResponse(user));

@@ -1,7 +1,7 @@
 const Task = require('./task.model');
 const tasksService = require('./task.service');
 
-const router = function (fastify, opts, done) {
+function router(fastify, opts, done) {
   fastify.get('/', async (request, reply) => {
     const tasks = await tasksService.getAll();
     const tasksDataToSend = await tasks.map((task) => Task.toResponse(task));
@@ -15,8 +15,8 @@ const router = function (fastify, opts, done) {
   });
   fastify.get('/:id', async (request, reply) => {
     const task = await tasksService.get(request.params.id);
-    if(!task){
-      reply.code(404)
+    if (!task) {
+      reply.code(404);
     }
     reply.send(Task.toResponse(task));
   });
@@ -30,6 +30,6 @@ const router = function (fastify, opts, done) {
   });
 
   done();
-};
+}
 
 module.exports = router;

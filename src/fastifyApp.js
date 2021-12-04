@@ -1,34 +1,36 @@
-// Require the framework and instantiate it
 const fastify = require('fastify')({ logger: true });
+const userRouter = require('./resources/users/user.router');
+
+fastify.register(userRouter, { prefix: '/users' })
 // __________________________________________________________________________
-fastify.route({
-  method: 'POST',
-  url: '/',
-  //   schema: {
-  //     // request needs to have a querystring with a `name` parameter
-  //     querystring: {
-  //       name: { type: 'string' },
-  //     },
-  //     // the response needs to be an object with an `hello` property of type 'string'
-  //     response: {
-  //       200: {
-  //         type: 'object',
-  //         properties: {
-  //           hello: { type: 'string' },
-  //         },
-  //       },
-  //     },
-  //   },
-  handler: async (request, reply) => {
-    setImmediate(() => {
-      reply.send({ hello: request.body.name });
-    });
-    await reply;
-    // return { hello: request.body.name };
-  },
-});
+// fastify.route({
+//   method: 'POST',
+//   url: '/',
+//   //   schema: {
+//   //     // request needs to have a querystring with a `name` parameter
+//   //     querystring: {
+//   //       name: { type: 'string' },
+//   //     },
+//   //     // the response needs to be an object with an `hello` property of type 'string'
+//   //     response: {
+//   //       200: {
+//   //         type: 'object',
+//   //         properties: {
+//   //           hello: { type: 'string' },
+//   //         },
+//   //       },
+//   //     },
+//   //   },
+//   handler: async (request, reply) => {
+//     setImmediate(() => {
+//       reply.send({ hello: request.body.name });
+//     });
+//     await reply;
+//     // return { hello: request.body.name };
+//   },
+// });
 // __________________________________________________________________________
-//   fastify.register(require('./routes/events'), { prefix: '/' })
+  
 
 // fastify.register(function (instance, opts, done) {
 //     instance.get('/foo', function (request, reply) {

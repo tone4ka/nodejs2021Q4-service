@@ -5,7 +5,9 @@ const users = [];
 const getAll = async () => users;
 
 const save = async (data) => {
-  users.push(new User(data));
+  const newUser = new User(data);
+  users.push(newUser);
+  return newUser;
 };
 
 const get = async (userId) => {

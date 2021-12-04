@@ -13,6 +13,9 @@ const router = function (fastify, opts, done) {
   });
   fastify.get('/:id', async (request, reply) => {
     const user = await usersService.get(request.params.id);
+    if(!user){
+      reply.code(404)
+    }
     reply.send(User.toResponse(user));
   });
   fastify.delete('/:id', async (request, reply) => {

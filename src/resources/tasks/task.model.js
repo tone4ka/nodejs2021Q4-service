@@ -7,33 +7,29 @@ class Task {
     description = 'description',
     userId = 'userId',
     boardId = 'boardId',
-    // columnId = 'columnId'
+    columnId = 'columnId',
+    order = 0,
   } = {}) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.userId = userId;
     this.boardId = boardId;
-    // this.columnId = columnId;
+    this.columnId = columnId;
+    this.order = order;
   }
 
   static toResponse(task) {
-    const {     
+    const { id, title, description, userId, boardId, columnId, order } = task;
+    return {
       id,
       title,
       description,
       userId,
       boardId,
-      // columnId
-     } = task;
-    return {     
-      id,
-      title,
-      description,
-      userId,
-      boardId,
-      // columnId
-     };
+      columnId,
+      order
+    };
   }
 }
 

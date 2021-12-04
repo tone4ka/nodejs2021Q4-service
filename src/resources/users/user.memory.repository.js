@@ -1,6 +1,7 @@
 const User = require('./user.model');
 
 const users = [];
+// const {tasks} = require('../constants');
 
 const getAll = async () => users;
 
@@ -27,6 +28,9 @@ const update = async (userId, newUserData) => {
 
 const remove = async (userId) => {
   const index = users.findIndex((user) => user.id === userId);
+  // users.array.forEach(task => {
+  //   if(task.userId === userId) task.userId = null;
+  // });
   if (index > -1) {
     users.splice(index, 1);
   }

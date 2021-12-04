@@ -8,11 +8,16 @@ const router = function (fastify, opts, done) {
     reply.send(tasksDataToSend);
   });
   fastify.post('/', async (request, reply) => {
-    const task = await tasksService.save(request.body);
+    const data = request.body;
+    data.boardId = request.params.boardId;
+    const task = await tasksService.save(data);
     reply.code(201).send(Task.toResponse(task));
   });
   fastify.get('/:id', async (request, reply) => {
     const task = await tasksService.get(request.params.id);
+    if(!task){
+      reply.code(404)
+    }
     reply.send(Task.toResponse(task));
   });
   fastify.delete('/:id', async (request, reply) => {

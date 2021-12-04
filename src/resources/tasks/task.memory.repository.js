@@ -1,6 +1,6 @@
 const Task = require('./task.model');
 
-const tasks = [];
+const {tasks} = require('../constants');
 
 const getAll = async () => tasks;
 

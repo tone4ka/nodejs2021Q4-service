@@ -20,7 +20,6 @@ fastify.route({
   //     },
   //   },
   handler: async (request, reply) => {
-    console.log(request.body);
     setImmediate(() => {
       reply.send({ hello: request.body.name });
     });

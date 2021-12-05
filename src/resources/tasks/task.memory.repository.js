@@ -10,10 +10,7 @@ const save = async (data) => {
   return newTask;
 };
 
-const get = async (taskId) => {
-  const requiredTask = tasks.find((task) => task.id === taskId);
-  return requiredTask;
-};
+const get = async (taskId) => tasks.find((task) => task.id === taskId);
 
 const update = async (taskId, newTaskData) => {
   const requiredTask = tasks.find((task) => task.id === taskId);

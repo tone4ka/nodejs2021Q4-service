@@ -1,7 +1,7 @@
 const Board = require('./board.model');
 const boardsService = require('./board.service');
-// const { tasks } = require('../constants');
-// const tasksService = require('../tasks/task.service');
+const { tasks } = require('../constants');
+const tasksService = require('../tasks/task.service');
 
 function router(fastify, opts, done) {
   fastify.get('/', async (request, reply) => {
@@ -23,16 +23,17 @@ function router(fastify, opts, done) {
     reply.send(Board.toResponse(board));
   });
   fastify.delete('/:id', async (request, reply) => {
-    // const tasks = await tasksService.getAll();
-    // let i = 0;
-    // while (i < tasks.length) {
-    //   if (tasks[i].boardId === request.params.id) {
-    //     await tasksService.remove(tasks[i].id);
-    //   }
-    //   i += 1;
-    // }
+    const len  = await tasksService.getAll();
+    let i = 0;
+    while (i < len.length) {
+      if (tasks[i].boardId === request.params.id) {
+        tasksService.remove(tasks[i].id);
+      }
+      i += 1;
+    };
     await boardsService.remove(request.params.id);
     reply.code(200).send({ Success: 'board deleted' });
+
   });
   fastify.put('/:id', async (request, reply) => {
     const board = await boardsService.update(request.params.id, request.body);

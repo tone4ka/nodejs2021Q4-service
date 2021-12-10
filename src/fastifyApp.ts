@@ -1,5 +1,5 @@
 const fastify = require('fastify')({ logger: true });
-const userRouter = require('./resources/users/user.router');
+import * as userRouter from './resources/users/user.router';
 const taskRouter = require('./resources/tasks/task.router');
 const boardRouter = require('./resources/boards/board.router');
 

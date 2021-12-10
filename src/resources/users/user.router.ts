@@ -1,6 +1,6 @@
 import User from './user.model';
 import * as usersService from './user.service';
-import tasksService from '../tasks/task.service';
+import * as tasksService from '../tasks/task.service';
 import {FastifyPluginAsync} from 'fastify';
 
 interface Params {

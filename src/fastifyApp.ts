@@ -7,4 +7,4 @@ fastify.register(userRouter, { prefix: '/users' });
 fastify.register(taskRouter, { prefix: 'boards/:boardId/tasks' });
 fastify.register(boardRouter, { prefix: '/boards' });
 
-module.exports = fastify;
+export default fastify;

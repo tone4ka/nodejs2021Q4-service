@@ -1,8 +1,10 @@
 const Task = require('./task.model');
 
-const {tasks} = require('../constants');
+const tasks = [];
 
-const getAll = async () => tasks;
+const getAll = (boardId) => tasks.filter((task) => task.boardId === boardId);
+
+const getAllusersTasks = (userId) => tasks.filter((task) => task.userId === userId);
 
 const save = async (data) => {
   const newTask = new Task(data);
@@ -10,7 +12,10 @@ const save = async (data) => {
   return newTask;
 };
 
-const get = async (taskId) => tasks.find((task) => task.id === taskId);
+const get = async (taskId) => {
+  const requiredTask = tasks.find((task) => task.id === taskId);
+  return requiredTask;
+};
 
 const update = async (taskId, newTaskData) => {
   const requiredTask = tasks.find((task) => task.id === taskId);
@@ -29,4 +34,4 @@ const remove = async (taskId) => {
   }
 };
 
-module.exports = { getAll, save, get, update, remove };
+module.exports = { getAll, save, get, update, remove, getAllusersTasks };

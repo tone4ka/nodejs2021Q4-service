@@ -3,9 +3,8 @@ const tasksService = require('./task.service');
 
 function router(fastify, opts, done) {
   fastify.get('/', async (request, reply) => {
-    const tasks = await tasksService.getAll();
-    const tasksDataToSend = await tasks.map((task) => Task.toResponse(task));
-    reply.send(tasksDataToSend);
+    const tasks = await tasksService.getAll(request.params.boardId);
+    reply.send(tasks);
   });
   fastify.post('/', async (request, reply) => {
     const data = request.body;

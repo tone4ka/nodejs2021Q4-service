@@ -8,6 +8,10 @@ interface Params {
   id: string;
 }
 
+/**
+ * Routing with prefix '/users'
+ * @param fastify FastifyInstance
+ */
 const userRouter: FastifyPluginAsync = async (fastify) => {
   fastify.get('/', (_, reply) => {
     const users = usersService.getAll();

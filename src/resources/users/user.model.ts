@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 
-
 class User {
   id: string;
 
@@ -10,6 +9,10 @@ class User {
 
   password: string | undefined;
 
+  /**
+   * 
+   * @param param0 user data object
+   */
   constructor({
     id = uuidv4(),
     name = 'USER',
@@ -22,6 +25,11 @@ class User {
     this.password = password;
   }
 
+  /**
+   * Returns an object containing viewable user data
+   * @param user user data object
+   * @returns an object containing viewable user data
+   */
   static toResponse(user: User):{
     id: string | undefined;
     name: string | undefined;

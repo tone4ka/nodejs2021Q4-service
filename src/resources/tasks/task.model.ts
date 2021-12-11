@@ -15,6 +15,10 @@ class Task {
 
   order: number | undefined;
 
+  /**
+   * 
+   * @param param0 task data object
+   */
   constructor({
     id = uuidv4(),
     title = 'title',
@@ -33,6 +37,11 @@ class Task {
     this.order = order;
   }
 
+  /**
+   * Returns an object containing viewable task data
+   * @param task task data object
+   * @returns an object containing viewable task data
+   */
   static toResponse(task: Task) {
     return task;
   }

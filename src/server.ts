@@ -3,7 +3,12 @@ import server from './fastifyApp';
 
  const {PORT} = config;
 
-const start = async (port: string | number) => {
+
+/**
+ * 
+ * @param port first term string or number
+ */
+const start = async (port: string | number): Promise<void>  => {
   try {
     await server.listen(port);
     console.log(`App is running on http://localhost:${port}`);

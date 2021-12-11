@@ -25,6 +25,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const board_model_1 = __importDefault(require("./board.model"));
 const boardsService = __importStar(require("./board.service"));
 const tasksService = __importStar(require("../tasks/task.service"));
+/**
+ * Routing with prefix '/boards'
+ * @param fastify FastifyInstance
+ */
 const boardRouter = async (fastify) => {
     fastify.get('/', (_, reply) => {
         const boards = boardsService.getAll();

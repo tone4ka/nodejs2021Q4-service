@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const config_1 = __importDefault(require("./common/config"));
 const fastifyApp_1 = __importDefault(require("./fastifyApp"));
 const { PORT } = config_1.default;
+/**
+ *
+ * @param port first term string or number
+ */
 const start = async (port) => {
     try {
         await fastifyApp_1.default.listen(port);

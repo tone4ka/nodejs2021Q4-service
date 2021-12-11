@@ -8,6 +8,10 @@ interface Params {
   id: string;
 }
 
+/**
+ * Routing with prefix '/boards'
+ * @param fastify FastifyInstance 
+ */
 const boardRouter: FastifyPluginAsync = async (fastify) => {
   fastify.get('/', (_, reply) => {
     const boards = boardsService.getAll();

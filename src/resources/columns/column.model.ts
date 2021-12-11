@@ -7,6 +7,10 @@ class Column {
 
   order: number;
 
+  /**
+   * 
+   * @param param0 column data object
+   */
   constructor({
     id = uuidv4(),
     title = 'title',
@@ -17,6 +21,11 @@ class Column {
     this.order = order;
   }
 
+  /**
+   * Returns an object containing viewable column data
+   * @param column column data object
+   * @returns an object containing viewable column data
+   */
   static toResponse(column: Column) {
     return column;
   }

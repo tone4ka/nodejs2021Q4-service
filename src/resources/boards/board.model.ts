@@ -8,6 +8,10 @@ class Board {
 
   columns: Column[];
 
+  /**
+   * 
+   * @param param0 board data object
+   */
   constructor({
     id = uuidv4(),
     title = 'title',
@@ -18,6 +22,11 @@ class Board {
     this.columns = columns.map((column) => new Column(column));
   }
 
+  /**
+   * Returns an object containing viewable board data
+   * @param board board data object
+   * @returns an object containing viewable board data
+   */
   static toResponse(board: Board) {
     const {
       id,

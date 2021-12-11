@@ -25,6 +25,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const user_model_1 = __importDefault(require("./user.model"));
 const usersService = __importStar(require("./user.service"));
 const tasksService = __importStar(require("../tasks/task.service"));
+/**
+ * Routing with prefix '/users'
+ * @param fastify FastifyInstance
+ */
 const userRouter = async (fastify) => {
     fastify.get('/', (_, reply) => {
         const users = usersService.getAll();

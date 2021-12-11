@@ -4,9 +4,13 @@ import * as tasksService from './task.service';
 
 interface Params {
   id: string;
-  boardId: string | undefined;
+  boardId: string;
 }
 
+/**
+ * Routing with prefix 'boards/:boardId/tasks'
+ * @param fastify FastifyInstance
+ */
 const taskRouter: FastifyPluginAsync = async (fastify) => {
   fastify.get('/', async (request, reply) => {
     const { boardId } = request.params as Params;

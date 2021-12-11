@@ -24,6 +24,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const task_model_1 = __importDefault(require("./task.model"));
 const tasksService = __importStar(require("./task.service"));
+/**
+ * Routing with prefix 'boards/:boardId/tasks'
+ * @param fastify FastifyInstance
+ */
 const taskRouter = async (fastify) => {
     fastify.get('/', async (request, reply) => {
         const { boardId } = request.params;

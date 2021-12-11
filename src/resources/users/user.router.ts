@@ -1,14 +1,14 @@
+import {FastifyPluginAsync} from 'fastify';
 import User from './user.model';
 import * as usersService from './user.service';
 import * as tasksService from '../tasks/task.service';
-import {FastifyPluginAsync} from 'fastify';
 import Task from '../tasks/task.model';
 
 interface Params {
   id: string;
 }
 
-export const router: FastifyPluginAsync = async (fastify) => {
+const userRouter: FastifyPluginAsync = async (fastify) => {
   fastify.get('/', (_, reply) => {
     const users = usersService.getAll();
     const usersDataToSend = users.map((user: User) => User.toResponse(user));
@@ -41,4 +41,6 @@ export const router: FastifyPluginAsync = async (fastify) => {
     reply.send({ ...User.toResponse(user as User) });
   });
 }
+
+export default userRouter;
 

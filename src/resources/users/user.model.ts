@@ -3,9 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 class User {
   id: string;
+
   name: string | undefined;
+
   login: string | undefined;
+
   password: string | undefined;
+
   constructor({
     id = uuidv4(),
     name = 'USER',

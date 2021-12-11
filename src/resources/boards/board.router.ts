@@ -1,14 +1,14 @@
+import {FastifyPluginAsync} from 'fastify';
 import Board from './board.model';
 import * as boardsService from './board.service';
 import * as tasksService from '../tasks/task.service';
-import {FastifyPluginAsync} from 'fastify';
 import Task from '../tasks/task.model';
 
 interface Params {
   id: string;
 }
 
-export const router: FastifyPluginAsync = async (fastify) => {
+const boardRouter: FastifyPluginAsync = async (fastify) => {
   fastify.get('/', (_, reply) => {
     const boards = boardsService.getAll();
     const boardsDataToSend = boards.map((board) =>
@@ -46,3 +46,5 @@ export const router: FastifyPluginAsync = async (fastify) => {
     reply.send({ ...Board.toResponse(board as Board) });
   });
 }
+
+export default boardRouter;

@@ -3,8 +3,11 @@ import Column from '../columns/column.model';
 
 class Board {
   id: string;
+
   title: string | undefined;
+
   columns: Column[];
+
   constructor({
     id = uuidv4(),
     title = 'title',

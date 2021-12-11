@@ -1,13 +1,13 @@
+import {FastifyPluginAsync} from 'fastify';
 import Task from './task.model';
 import * as tasksService from './task.service';
-import {FastifyPluginAsync} from 'fastify';
 
 interface Params {
   id: string;
   boardId: string | undefined;
 }
 
-export const router: FastifyPluginAsync = async (fastify) => {
+const taskRouter: FastifyPluginAsync = async (fastify) => {
   fastify.get('/', async (request, reply) => {
     const { boardId } = request.params as Params;
     const tasks = tasksService.getAll(boardId);
@@ -46,3 +46,5 @@ export const router: FastifyPluginAsync = async (fastify) => {
     
   });
 }
+
+export default taskRouter;

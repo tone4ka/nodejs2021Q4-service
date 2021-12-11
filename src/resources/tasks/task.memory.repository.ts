@@ -9,7 +9,7 @@ const getAllusersTasks = (userId: string | undefined): Task[] => tasks.filter((t
 const save = (data: Task): Task => {
   const newTask = data as Task;
   tasks.push(newTask);
-  return newTask;
+  return newTask as Task;
 };
 
 const get = (taskId: string | undefined): Task | void => {

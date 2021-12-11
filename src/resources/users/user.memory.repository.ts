@@ -19,9 +19,9 @@ const update = (userId: string | undefined, newUserData: User): User | void => {
   const requiredUser = users.find((user) => user.id === userId);
   if(requiredUser){
     requiredUser.id = newUserData.id;
-    requiredUser.name = newUserData.id;
-    requiredUser.login = newUserData.id;
-    requiredUser.password = newUserData.id;
+    requiredUser.name = newUserData.name;
+    requiredUser.login = newUserData.login;
+    requiredUser.password = newUserData.password;
   }
   return requiredUser;
 };

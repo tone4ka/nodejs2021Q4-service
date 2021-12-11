@@ -30,7 +30,9 @@ const userRouter: FastifyPluginAsync = async (fastify) => {
     const { id } = request.params as Params;
     const tasks = tasksService.getAllusersTasks(id);
     for (let i = 0; i < tasks.length; i += 1) {
-      tasksService.save({...tasks[i] as Task, userId: null});
+      const task = tasks[i] as Task;
+      task.userId = null
+      tasksService.update(task.id, task);
     }
     usersService.remove(id);
     reply.code(200).send({ Success: 'user deleted' });

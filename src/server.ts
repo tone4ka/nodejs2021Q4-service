@@ -1,15 +1,15 @@
-import { PORT } from'./common/config';
+import config from'./common/config';
 import server from './fastifyApp';
 
+ const {PORT} = config;
 
-
-const start = async (): Promise<void> => {
+const start = async (port: string | number) => {
   try {
-    await server.listen(PORT);
-    console.log(`App is running on http://localhost:${PORT}`);
+    await server.listen(port);
+    console.log(`App is running on http://localhost:${port}`);
   } catch (err) {
     console.error(err);
     process.exit(1);
   }
 };
-start();
+start(PORT || 3000);

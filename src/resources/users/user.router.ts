@@ -2,6 +2,7 @@ import User from './user.model';
 import * as usersService from './user.service';
 import * as tasksService from '../tasks/task.service';
 import {FastifyPluginAsync} from 'fastify';
+import Task from '../tasks/task.model';
 
 interface Params {
   id: string;
@@ -29,7 +30,7 @@ export const router: FastifyPluginAsync = async (fastify) => {
     const { id } = request.params as Params;
     const tasks = tasksService.getAllusersTasks(id);
     for (let i = 0; i < tasks.length; i += 1) {
-      tasksService.save({...tasks[i], userId: null});
+      tasksService.save({...tasks[i] as Task, userId: null});
     }
     usersService.remove(id);
     reply.code(200).send({ Success: 'user deleted' });

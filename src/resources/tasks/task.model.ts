@@ -1,21 +1,21 @@
 import { v4 as uuidv4 } from 'uuid';
 
 class Task {
-  id: string | undefined;
+  id: string;
   title: string | undefined;
   description: string | undefined;
-  userId: string | undefined | null;
+  userId: string | null | undefined;
   boardId: string | undefined;
   columnId: string | undefined;
-  order: string | undefined;
+  order: number | undefined;
   constructor({
     id = uuidv4(),
     title = 'title',
     description = 'description',
-    userId = 'userId',
+    userId = null,
     boardId = 'boardId',
     columnId = 'columnId',
-    order = '0',
+    order = 0,
   } = {}) {
     this.id = id;
     this.title = title;
@@ -27,16 +27,7 @@ class Task {
   }
 
   static toResponse(task: Task) {
-    const { id, title, description, userId, boardId, columnId, order } = task;
-    return {
-      id,
-      title,
-      description,
-      userId,
-      boardId,
-      columnId,
-      order,
-    };
+    return task;
   }
 }
 

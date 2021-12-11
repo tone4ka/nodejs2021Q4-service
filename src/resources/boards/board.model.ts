@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Column from '../columns/column.model';
 
 class Board {
-  id: string | undefined;
+  id: string;
   title: string | undefined;
   columns: Column[];
   constructor({

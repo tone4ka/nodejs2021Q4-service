@@ -17,10 +17,10 @@ const get = (boardId: string | undefined): Board | void => {
 
 const update = (boardId: string | undefined, newBoardData: Board): Board | void => {
   const requiredBoard = boards.find((board) => board.id === boardId);
-  const newBoardDataArr = Object.keys(new Board(newBoardData));
-  for (let i = 0; i < newBoardDataArr.length; i += 1) {
-    const key = newBoardDataArr[i];
-    requiredBoard[key] = newBoardData[key];
+  if(requiredBoard){
+    requiredBoard.id = newBoardData.id;
+    requiredBoard.title = newBoardData.title;
+    requiredBoard.columns = newBoardData.columns;
   }
   return requiredBoard;
 };

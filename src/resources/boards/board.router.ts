@@ -2,6 +2,7 @@ import Board from './board.model';
 import * as boardsService from './board.service';
 import * as tasksService from '../tasks/task.service';
 import {FastifyPluginAsync} from 'fastify';
+import Task from '../tasks/task.model';
 
 interface Params {
   id: string;
@@ -32,7 +33,8 @@ export const router: FastifyPluginAsync = async (fastify) => {
     const tasks = tasksService.getAll(id);
     let i = 0;
     while (i < tasks.length) {
-      tasksService.remove(tasks[i].id);
+      const task = tasks[i] as Task
+      tasksService.remove(task.id);
       i += 1;
     }
     await boardsService.remove(id);

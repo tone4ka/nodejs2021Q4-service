@@ -2,22 +2,22 @@ import Task from './task.model';
 
 const tasks: Task[] = [];
 
-const getAll = (boardId: string | undefined) => tasks.filter((task) => task.boardId === boardId);
+const getAll = (boardId: string | undefined): Task[] => tasks.filter((task) => task.boardId === boardId);
 
-const getAllusersTasks = (userId: string | undefined) => tasks.filter((task) => task.userId === userId);
+const getAllusersTasks = (userId: string | undefined): Task[] => tasks.filter((task) => task.userId === userId);
 
-const save = async (data: Task) => {
-  const newTask = new Task(data);
+const save = (data: Task): Task => {
+  const newTask = data as Task;
   tasks.push(newTask);
   return newTask;
 };
 
-const get = async (taskId: string | undefined) => {
+const get = (taskId: string | undefined): Task | void => {
   const requiredTask = tasks.find((task) => task.id === taskId);
   return requiredTask;
 };
 
-const update = async (taskId: string | undefined, newTaskData: Task) => {
+const update = (taskId: string | undefined, newTaskData: Task): Task | void => {
   const requiredTask = tasks.find((task) => task.id === taskId);
   if(requiredTask){
     requiredTask.id = newTaskData.id;
@@ -31,7 +31,7 @@ const update = async (taskId: string | undefined, newTaskData: Task) => {
   return requiredTask;
 };
 
-const remove = async (taskId: string | undefined) => {
+const remove = (taskId: string | undefined): void => {
   const index = tasks.findIndex((task) => task.id === taskId);
   if (index > -1) {
     tasks.splice(index, 1);

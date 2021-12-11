@@ -2,20 +2,20 @@ import User from './user.model';
 
 const users: User[] = [];
 
-const getAll = () => users;
+const getAll = (): User[] => users;
 
-const save = async (data: User) => {
+const save = (data: User): User => {
   const newUser = new User(data);
   users.push(newUser);
   return newUser;
 };
 
-const get = async (userId: string | undefined) => {
+const get = (userId: string | undefined): User | void => {
   const requiredUser = users.find((user) => user.id === userId);
   return requiredUser;
 };
 
-const update = async (userId: string | undefined, newUserData: User) => {
+const update = (userId: string | undefined, newUserData: User): User | void => {
   const requiredUser = users.find((user) => user.id === userId);
   if(requiredUser){
     requiredUser.id = newUserData.id;
@@ -26,7 +26,7 @@ const update = async (userId: string | undefined, newUserData: User) => {
   return requiredUser;
 };
 
-const remove = async (userId: string | undefined) => {
+const remove = (userId: string | undefined): void => {
   const index = users.findIndex((user) => user.id === userId);
   if (index > -1) {
     users.splice(index, 1);

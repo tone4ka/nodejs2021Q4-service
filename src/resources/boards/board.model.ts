@@ -1,18 +1,21 @@
-const { v4: uuidv4 } = require('uuid');
-const Column = require('../columns/column.model')
+import { v4 as uuidv4 } from 'uuid';
+import Column from '../columns/column.model';
 
 class Board {
+  id: string | undefined;
+  title: string | undefined;
+  columns: Column[];
   constructor({
     id = uuidv4(),
     title = 'title',
-    columns = []
+    columns = [new Column()]
   } = {}) {
     this.id = id;
     this.title = title;
     this.columns = columns.map((column) => new Column(column));
   }
 
-  static toResponse(board) {
+  static toResponse(board: Board) {
     const {
       id,
       title,
@@ -26,4 +29,4 @@ class Board {
   }
 }
 
-module.exports = Board;
+export default Board;

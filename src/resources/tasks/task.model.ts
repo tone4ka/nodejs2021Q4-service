@@ -4,7 +4,7 @@ class Task {
   id: string | undefined;
   title: string | undefined;
   description: string | undefined;
-  userId: string | undefined;
+  userId: string | undefined | null;
   boardId: string | undefined;
   columnId: string | undefined;
   order: string | undefined;
@@ -35,7 +35,7 @@ class Task {
       userId,
       boardId,
       columnId,
-      order
+      order,
     };
   }
 }

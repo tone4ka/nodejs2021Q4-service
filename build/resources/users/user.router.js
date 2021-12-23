@@ -25,26 +25,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const user_model_1 = __importDefault(require("./user.model"));
 const usersService = __importStar(require("./user.service"));
 const tasksService = __importStar(require("../tasks/task.service"));
+const logger_1 = __importDefault(require("../../logging/logger"));
+const loogger = new logger_1.default();
 /**
  * Routing with prefix '/users'
  * @param fastify FastifyInstance
  */
 const userRouter = async (fastify) => {
-    fastify.get('/', (_, reply) => {
+    fastify.get('/', (request, reply) => {
         const users = usersService.getAll();
         const usersDataToSend = users.map((user) => user_model_1.default.toResponse(user));
+        loogger.print(request, reply.statusCode);
         reply.send(usersDataToSend);
     });
     fastify.post('/', (request, reply) => {
         const user = usersService.save(request.body);
+        loogger.print(request, 201);
         reply.code(201).send(user_model_1.default.toResponse(user));
     });
     fastify.get('/:id', (request, reply) => {
         const { id } = request.params;
         const user = usersService.get(id);
         if (!user) {
+            loogger.print(request, 404);
             reply.code(404);
         }
+        loogger.print(request, reply.statusCode);
         reply.send(user_model_1.default.toResponse(user));
     });
     fastify.delete('/:id', (request, reply) => {
@@ -56,11 +62,13 @@ const userRouter = async (fastify) => {
             tasksService.update(task.id, task);
         }
         usersService.remove(id);
+        loogger.print(request, 200);
         reply.code(200).send({ Success: 'user deleted' });
     });
     fastify.put('/:id', (request, reply) => {
         const { id } = request.params;
         const user = usersService.update(id, request.body);
+        loogger.print(request, reply.statusCode);
         reply.send({ ...user_model_1.default.toResponse(user) });
     });
 };

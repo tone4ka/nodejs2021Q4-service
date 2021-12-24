@@ -1,5 +1,5 @@
 import { FastifyRequest } from 'fastify';
-
+import fs from 'fs';
 class Logger {
   //Тут можно использовать переменную окружения для определения логгирования?
   //  req: FastifyRequest | string;
@@ -27,6 +27,22 @@ class Logger {
     console.log(color, req.query);
     console.log(color, `Response status code: ${statusCode}`);
     console.log(color, `---------------------`);
+    fs.appendFile('./logs/log.txt', `
+    ---------------------
+    Response status code: ${statusCode}
+
+    URL: ${req.url}
+
+    Body:
+    ${JSON.stringify(req.body)}
+
+    Query parameters:
+    ${JSON.stringify(req.query)}
+    ---------------------
+    `, (err) => {
+        if(err) console.log(err);
+    })
+
   }
 }
 

@@ -1,0 +1,13 @@
+
+    ---------------------
+    Response status code: 404
+
+    URL: /boas?blablabla=grftghbtfgj&hjthtrhtg=fgjfthrj
+
+    Body:
+    {"title":"title1111111111111111111111","description":"description","userId":"userId","boardId":"boardId"}
+
+    Query parameters:
+    {"blablabla":"grftghbtfgj","hjthtrhtg":"fgjfthrj"}
+    ---------------------
+    

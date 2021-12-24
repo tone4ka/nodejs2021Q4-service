@@ -31,7 +31,6 @@ const tasksService = __importStar(require("../tasks/task.service"));
  */
 const boardRouter = async (fastify) => {
     fastify.get('/', (_, reply) => {
-        throw Error;
         const boards = boardsService.getAll();
         const boardsDataToSend = boards.map((board) => board_model_1.default.toResponse(board));
         reply.send(boardsDataToSend);

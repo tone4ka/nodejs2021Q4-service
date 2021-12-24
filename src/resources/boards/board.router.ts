@@ -14,6 +14,7 @@ interface Params {
  */
 const boardRouter: FastifyPluginAsync = async (fastify) => {
   fastify.get('/', (_, reply) => {
+    throw Error;
     const boards = boardsService.getAll();
     const boardsDataToSend = boards.map((board) =>
       Board.toResponse(board)

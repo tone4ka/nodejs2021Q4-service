@@ -1,8 +1,8 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import myError from './myError';
+import MyError from './myError';
 
 const errorHandler = ( err: Error, _:FastifyRequest, reply:FastifyReply) => {
-    if(err instanceof myError) {
+    if(err instanceof MyError) {
       reply.status(+err.name);
       reply.send({ message: err.message })
     } else {

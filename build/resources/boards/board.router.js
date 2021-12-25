@@ -25,6 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const board_model_1 = __importDefault(require("./board.model"));
 const boardsService = __importStar(require("./board.service"));
 const tasksService = __importStar(require("../tasks/task.service"));
+const myError_1 = __importDefault(require("../../errorHandling/myError"));
 /**
  * Routing with prefix '/boards'
  * @param fastify FastifyInstance
@@ -43,12 +44,16 @@ const boardRouter = async (fastify) => {
         const { id } = request.params;
         const board = await boardsService.get(id);
         if (!board) {
-            reply.code(404);
+            throw new myError_1.default('No board with this ID found', 404);
         }
         reply.send(board_model_1.default.toResponse(board));
     });
     fastify.delete('/:id', async (request, reply) => {
         const { id } = request.params;
+        const board = await boardsService.get(id);
+        if (!board) {
+            throw new myError_1.default('No board with this ID found', 404);
+        }
         const tasks = tasksService.getAll(id);
         let i = 0;
         while (i < tasks.length) {
@@ -61,8 +66,12 @@ const boardRouter = async (fastify) => {
     });
     fastify.put('/:id', async (request, reply) => {
         const { id } = request.params;
-        const board = await boardsService.update(id, request.body);
-        reply.send({ ...board_model_1.default.toResponse(board) });
+        const board = await boardsService.get(id);
+        if (!board) {
+            throw new myError_1.default('No board with this ID found', 404);
+        }
+        const apdatedBoard = await boardsService.update(id, request.body);
+        reply.send({ ...board_model_1.default.toResponse(apdatedBoard) });
     });
 };
 exports.default = boardRouter;

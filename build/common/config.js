@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const path_1 = __importDefault(require("path"));
 dotenv_1.default.config({
-    path: path_1.default.join(__dirname, '../../.env')
+    path: path_1.default.join(__dirname, '../../.env'),
 });
 const config = {
     PORT: process.env['PORT'],
@@ -14,5 +14,6 @@ const config = {
     MONGO_CONNECTION_STRING: process.env['MONGO_CONNECTION_STRING'],
     JWT_SECRET_KEY: process.env['JWT_SECRET_KEY'],
     AUTH_MODE: process.env['AUTH_MODE'] === 'true',
+    LOGGING_LEVEL: process.env['LOGGING_LEVEL']
 };
 exports.default = config;

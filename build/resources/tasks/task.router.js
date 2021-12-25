@@ -24,6 +24,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const task_model_1 = __importDefault(require("./task.model"));
 const tasksService = __importStar(require("./task.service"));
+const boardsService = __importStar(require("../boards/board.service"));
+const myError_1 = __importDefault(require("../../errorHandling/myError"));
 /**
  * Routing with prefix 'boards/:boardId/tasks'
  * @param fastify FastifyInstance
@@ -31,40 +33,67 @@ const tasksService = __importStar(require("./task.service"));
 const taskRouter = async (fastify) => {
     fastify.get('/', async (request, reply) => {
         const { boardId } = request.params;
+        const board = await boardsService.get(boardId);
+        if (!board) {
+            throw new myError_1.default('No board with this ID found', 404);
+        }
         const tasks = tasksService.getAll(boardId);
         reply.send(tasks);
     });
     fastify.post('/', async (request, reply) => {
-        const data = request.body;
         const { boardId } = request.params;
+        const board = await boardsService.get(boardId);
+        if (!board) {
+            throw new myError_1.default('No board with this ID found', 404);
+        }
+        const data = request.body;
         data.boardId = boardId;
         const task = tasksService.save(data);
         reply.code(201).send(task_model_1.default.toResponse(task));
     });
     fastify.get('/:id', async (request, reply) => {
+        const { boardId } = request.params;
+        const board = await boardsService.get(boardId);
+        if (!board) {
+            throw new myError_1.default('No board with this ID found', 404);
+        }
         const { id } = request.params;
         const task = tasksService.get(id);
         if (!task) {
-            reply.code(404);
-            reply.send('not found');
+            throw new myError_1.default('No task with this ID found', 404);
         }
         else {
             reply.send(task_model_1.default.toResponse(task));
         }
     });
     fastify.delete('/:id', async (request, reply) => {
+        const { boardId } = request.params;
+        const board = await boardsService.get(boardId);
+        if (!board) {
+            throw new myError_1.default('No board with this ID found', 404);
+        }
         const { id } = request.params;
+        const task = tasksService.get(id);
+        if (!task) {
+            throw new myError_1.default('No task with this ID found', 404);
+        }
         tasksService.remove(id);
         reply.code(200).send({ Success: 'task deleted' });
     });
     fastify.put('/:id', async (request, reply) => {
-        const { id } = request.params;
-        const task = tasksService.update(id, request.body);
-        if (task) {
-            reply.send({ ...task_model_1.default.toResponse(task) });
+        const { boardId } = request.params;
+        const board = await boardsService.get(boardId);
+        if (!board) {
+            throw new myError_1.default('No board with this ID found', 404);
         }
-        else {
-            reply.send('not found');
+        const { id } = request.params;
+        const task = tasksService.get(id);
+        if (!task) {
+            throw new myError_1.default('No task with this ID found', 404);
+        }
+        const apdatedTask = tasksService.update(id, request.body);
+        if (apdatedTask) {
+            reply.send({ ...task_model_1.default.toResponse(apdatedTask) });
         }
     });
 };

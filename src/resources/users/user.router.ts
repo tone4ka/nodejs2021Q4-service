@@ -3,6 +3,7 @@ import User from './user.model';
 import * as usersService from './user.service';
 import * as tasksService from '../tasks/task.service';
 import Task from '../tasks/task.model';
+import MyError from '../../errorHandling/myError';
 
 interface Params {
   id: string;
@@ -26,12 +27,16 @@ const userRouter: FastifyPluginAsync = async (fastify) => {
     const { id } = request.params as Params;
     const user = usersService.get(id);
     if (!user) {
-      reply.code(404);
+      throw new MyError('No user with this ID found', 404);
     }
     reply.send(User.toResponse(user as User));
   });
   fastify.delete('/:id', (request, reply) => {
     const { id } = request.params as Params;
+    const user = usersService.get(id);
+    if (!user) {
+      throw new MyError('No user with this ID found', 404);
+    }
     const tasks = tasksService.getAllusersTasks(id);
     for (let i = 0; i < tasks.length; i += 1) {
       const task = tasks[i] as Task;
@@ -43,8 +48,12 @@ const userRouter: FastifyPluginAsync = async (fastify) => {
   });
   fastify.put('/:id', (request, reply) => {
     const { id } = request.params as Params;
-    const user =  usersService.update(id, request.body as User);
-    reply.send({ ...User.toResponse(user as User) });
+    const user = usersService.get(id);
+    if (!user) {
+      throw new MyError('No user with this ID found', 404);
+    }
+    const updatedUser =  usersService.update(id, request.body as User);
+    reply.send({ ...User.toResponse(updatedUser as User) });
   });
 }
 

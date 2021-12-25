@@ -3,6 +3,7 @@ import Board from './board.model';
 import * as boardsService from './board.service';
 import * as tasksService from '../tasks/task.service';
 import Task from '../tasks/task.model';
+import MyError from '../../errorHandling/myError';
 
 interface Params {
   id: string;
@@ -28,12 +29,16 @@ const boardRouter: FastifyPluginAsync = async (fastify) => {
     const { id } = request.params as Params;
     const board = await boardsService.get(id);
     if (!board) {
-      reply.code(404);
+      throw new MyError('No board with this ID found', 404);
     }
     reply.send(Board.toResponse(board));
   });
   fastify.delete('/:id', async (request, reply) => {
     const { id } = request.params as Params;
+    const board = await boardsService.get(id);
+    if (!board) {
+      throw new MyError('No board with this ID found', 404);
+    }
     const tasks = tasksService.getAll(id);
     let i = 0;
     while (i < tasks.length) {
@@ -46,8 +51,14 @@ const boardRouter: FastifyPluginAsync = async (fastify) => {
   });
   fastify.put('/:id', async (request, reply) => {
     const { id } = request.params as Params;
-    const board = await boardsService.update(id, request.body as Board);
-    reply.send({ ...Board.toResponse(board as Board) });
+
+    const board = await boardsService.get(id);
+    if (!board) {
+      throw new MyError('No board with this ID found', 404);
+    }
+
+    const apdatedBoard = await boardsService.update(id, request.body as Board);
+    reply.send({ ...Board.toResponse(apdatedBoard as Board) });
   });
 }
 

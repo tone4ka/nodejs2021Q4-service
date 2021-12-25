@@ -25,6 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const user_model_1 = __importDefault(require("./user.model"));
 const usersService = __importStar(require("./user.service"));
 const tasksService = __importStar(require("../tasks/task.service"));
+const myError_1 = __importDefault(require("../../errorHandling/myError"));
 /**
  * Routing with prefix '/users'
  * @param fastify FastifyInstance
@@ -43,12 +44,16 @@ const userRouter = async (fastify) => {
         const { id } = request.params;
         const user = usersService.get(id);
         if (!user) {
-            reply.code(404);
+            throw new myError_1.default('No user with this ID found', 404);
         }
         reply.send(user_model_1.default.toResponse(user));
     });
     fastify.delete('/:id', (request, reply) => {
         const { id } = request.params;
+        const user = usersService.get(id);
+        if (!user) {
+            throw new myError_1.default('No user with this ID found', 404);
+        }
         const tasks = tasksService.getAllusersTasks(id);
         for (let i = 0; i < tasks.length; i += 1) {
             const task = tasks[i];
@@ -60,8 +65,12 @@ const userRouter = async (fastify) => {
     });
     fastify.put('/:id', (request, reply) => {
         const { id } = request.params;
-        const user = usersService.update(id, request.body);
-        reply.send({ ...user_model_1.default.toResponse(user) });
+        const user = usersService.get(id);
+        if (!user) {
+            throw new myError_1.default('No user with this ID found', 404);
+        }
+        const updatedUser = usersService.update(id, request.body);
+        reply.send({ ...user_model_1.default.toResponse(updatedUser) });
     });
 };
 exports.default = userRouter;

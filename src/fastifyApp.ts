@@ -27,13 +27,13 @@ server.setErrorHandler((error, request, reply) =>
 );
 
 process
-  .on('unhandledRejection', (err: Error) => {
+  .on('unhandledRejection', () => {
     logger.printProcessError('Unhandled Rejection at Promise');
-    console.error(err.message, 'Unhandled Rejection at Promise');
+    console.error('Unhandled Rejection at Promise');
   })
-  .on('uncaughtException', (err: Error) => {
+  .on('uncaughtException', () => {
     logger.printProcessError('Uncaught Exception thrown');
-    console.error(err.message, 'Uncaught Exception thrown');
+    console.error('Uncaught Exception thrown');
     process.exit(1);
   });
 

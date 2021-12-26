@@ -1,75 +1,28 @@
-import { FastifyRequest } from 'fastify';
+import { FastifyRequest, FastifyReply } from 'fastify';
 import fs from 'fs';
 import config from '../common/config';
+import setColor from './setColor';
+import printToConsole from './printToConsole';
+import printToFile from './printToFile';
 
 const { LOGGING_LEVEL } = config;
 
 class Logger {
-  print(req: FastifyRequest, statusCode: number | string) {
+  print(req: FastifyRequest, reply: FastifyReply) {
     const lvl = LOGGING_LEVEL || '0';
     if (
-      (lvl === '0' && +statusCode >= 500) ||
-      (lvl === '1' && +statusCode >= 400) ||
+      (lvl === '0' && +reply.statusCode >= 500) ||
+      (lvl === '1' && +reply.statusCode >= 400) ||
       lvl === '2'
     ) {
-      let color;
-      if (+statusCode < 400) {
-        color = '\x1b[32m%s\x1b[0m';
-      } else if (+statusCode < 500) {
-        color = '\x1b[36m%s\x1b[0m';
-      } else {
-        color = '\x1b[31m%s\x1b[0m';
-      }
-      console.log(color, `---------------------`);
-      console.log(color, `URL: ${req.url}`);
-      console.log(color, `Body:`);
-      console.log(color, req.body);
-      console.log(color, 'Query parameters:');
-      console.log(color, req.query);
-      console.log(color, `Response status code: ${statusCode}`);
-      console.log(color, `---------------------`);
+      const color = setColor(reply.statusCode);
 
-      fs.appendFile(
-        './logs/log.txt',
-        `
-        ---------------------
-        Response status code: ${statusCode}
-    
-        URL: ${req.url}
-    
-        Body:
-        ${JSON.stringify(req.body)}
-    
-        Query parameters:
-        ${JSON.stringify(req.query)}
-        ---------------------
-        `,
-        (err) => {
-          if (err) console.log(err);
-        }
-      );
-
-      if (+statusCode >= 400) {
-        fs.appendFile(
-          './logs/errors.txt',
-          `
-        ---------------------
-          Response status code: ${statusCode}
-    
-          URL: ${req.url}
-    
-          Body:
-          ${JSON.stringify(req.body)}
-    
-          Query parameters:
-          ${JSON.stringify(req.query)}
-          ---------------------
-          `,
-          (err) => {
-            if (err) console.log(err);
-          }
-        );
+      printToConsole(color, req, reply.statusCode);
+      printToFile('log.txt', req, reply);
+      if(+reply.statusCode >= 400) {
+        printToFile('errors.txt', req, reply);
       }
+
     }
   }
 

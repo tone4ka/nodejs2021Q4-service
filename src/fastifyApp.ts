@@ -11,7 +11,7 @@ const logger = new Logger();
 const server: FastifyInstance = Fastify({});
 
 server.addHook('onSend', async (req, reply) => {
-  logger.print(req, reply.statusCode);
+  logger.print(req, reply);
 });
 
 server.register(userRouter, { prefix: '/users' });
@@ -27,13 +27,11 @@ server.setErrorHandler((error, request, reply) =>
 );
 
 process
-  .on('unhandledRejection', () => {
-    logger.printProcessError('Unhandled Rejection at Promise');
-    console.error('Unhandled Rejection at Promise');
+  .on('unhandledRejection', (err: Error) => {
+    logger.printProcessError(err.message);
   })
-  .on('uncaughtException', () => {
-    logger.printProcessError('Uncaught Exception thrown');
-    console.error('Uncaught Exception thrown');
+  .on('uncaughtException', (err: Error) => {
+    logger.printProcessError(err.message);
     process.exit(1);
   });
 

@@ -13,7 +13,7 @@ const logger = new Logger();
  */
 const start = async (port: string | number): Promise<void>  => {
   try {
-    await server.listen(port);
+    await server.listen(port, '0.0.0.0');
     console.log(`App is running on http://localhost:${port}`);
   } catch (err) {
     logger.printProcessError('Something went wrong');

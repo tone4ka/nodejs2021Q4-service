@@ -1,8 +1,8 @@
 FROM node:lts-alpine
 
-EXPOSE 4000
+EXPOSE $PORT
 
-WORKDIR /usr/app/src
+WORKDIR /usr/app
 
 COPY package*.json .
 

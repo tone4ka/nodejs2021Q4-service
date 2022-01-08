@@ -1,10 +1,14 @@
-version: '3.0'
+version: '3.9'
 
 services:
-  my-rss-docker:
+  app:
+    env_file:
+      - .env
+    image: my-rss-docker
     build: .
     volumes:
-      - .:/usr/src/app
+      - /usr/app
+      - /usr/app/node_modules
     ports:
-      - "4000:4000"
+      - "$PORT:$PORT"
     command: npm run dev

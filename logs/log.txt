@@ -1,0 +1,13 @@
+
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        

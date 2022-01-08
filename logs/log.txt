@@ -11,3 +11,807 @@
         {}
         ---------------------
         
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards
+    
+        Body:
+        {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks
+    
+        Body:
+        {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"0cdbd5f1-f8dd-4d3c-9255-681089314c13","columnId":null}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks/966651b7-6e37-4d79-a676-a052d62fcbba
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks
+    
+        Body:
+        {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"0cdbd5f1-f8dd-4d3c-9255-681089314c13","columnId":null}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks/cee43229-b71d-4c3b-9c08-99e1d329ac7d
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks
+    
+        Body:
+        {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"0cdbd5f1-f8dd-4d3c-9255-681089314c13","columnId":null}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks/018a1012-942c-4472-9ab0-9a873f89ea67
+    
+        Body:
+        {"id":"018a1012-942c-4472-9ab0-9a873f89ea67","title":"Autotest updated task","description":"Lorem ipsum","userId":null,"boardId":"0cdbd5f1-f8dd-4d3c-9255-681089314c13","columnId":null,"order":0}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks/018a1012-942c-4472-9ab0-9a873f89ea67
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks/966651b7-6e37-4d79-a676-a052d62fcbba
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks/966651b7-6e37-4d79-a676-a052d62fcbba
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13/tasks/966651b7-6e37-4d79-a676-a052d62fcbba
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/0cdbd5f1-f8dd-4d3c-9255-681089314c13
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards
+    
+        Body:
+        {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/6167093e-8619-4db1-84d2-4ce79a52cfe1
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards
+    
+        Body:
+        {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/b723cf73-0f79-4e38-a43f-35cbfe451ec1
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards
+    
+        Body:
+        {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/53be3597-743a-4bdd-8c76-013e71648d5b
+    
+        Body:
+        {"id":"53be3597-743a-4bdd-8c76-013e71648d5b","title":"Autotest updated board","columns":[{"id":"a17eb942-5484-4069-905c-ee9136689a1c","title":"Backlog","order":1},{"id":"1bb9c90c-20d6-4b1f-9be6-864efacb8290","title":"Sprint","order":2}]}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/53be3597-743a-4bdd-8c76-013e71648d5b
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/53be3597-743a-4bdd-8c76-013e71648d5b
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards
+    
+        Body:
+        {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/c62a7341-9347-4409-95ab-6f64d8f909b8
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/c62a7341-9347-4409-95ab-6f64d8f909b8
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards
+    
+        Body:
+        {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks
+    
+        Body:
+        {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"21c19342-16d2-4ea4-8e4e-447d6e172444","userId":null,"columnId":null}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks
+    
+        Body:
+        {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"21c19342-16d2-4ea4-8e4e-447d6e172444","userId":null,"columnId":null}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks
+    
+        Body:
+        {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"21c19342-16d2-4ea4-8e4e-447d6e172444","userId":null,"columnId":null}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks
+    
+        Body:
+        {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"21c19342-16d2-4ea4-8e4e-447d6e172444","userId":null,"columnId":null}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks
+    
+        Body:
+        {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"21c19342-16d2-4ea4-8e4e-447d6e172444","userId":null,"columnId":null}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/20b5b60d-458c-406b-8c66-83b25be172b8
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/4747b6cc-6d6c-4aed-9e3b-fdf01e645718
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/73c969f7-ce0a-42c9-bfbf-7f25b98c0144
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/597bfc6e-5fca-44fd-9ffc-366475acb94b
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/40238660-fd74-449d-8407-300bd7ea2a09
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/20b5b60d-458c-406b-8c66-83b25be172b8
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/4747b6cc-6d6c-4aed-9e3b-fdf01e645718
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/73c969f7-ce0a-42c9-bfbf-7f25b98c0144
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/597bfc6e-5fca-44fd-9ffc-366475acb94b
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/21c19342-16d2-4ea4-8e4e-447d6e172444/tasks/40238660-fd74-449d-8407-300bd7ea2a09
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/6167093e-8619-4db1-84d2-4ce79a52cfe1
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /users
+    
+        Body:
+        {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users/fc7a6e6d-2ab8-4bcd-ba2c-285577fdea31
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users/fc7a6e6d-2ab8-4bcd-ba2c-285577fdea31
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /users
+    
+        Body:
+        {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users/43b6a85e-bb84-496e-a09e-d241b0414dd7
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /users
+    
+        Body:
+        {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users/199cf1a9-81a8-463d-af95-656aeb3f1130
+    
+        Body:
+        {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"199cf1a9-81a8-463d-af95-656aeb3f1130"}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users/199cf1a9-81a8-463d-af95-656aeb3f1130
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users/199cf1a9-81a8-463d-af95-656aeb3f1130
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /users
+    
+        Body:
+        {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users/a6b4a7e6-6d5a-41ec-b736-12102617e428
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /users
+    
+        Body:
+        {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards
+    
+        Body:
+        {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/af5d6c87-ce79-4af3-b0b6-7f177e3da46d/tasks
+    
+        Body:
+        {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"a058f77e-85fe-45aa-bf0d-4790ee44e91e","boardId":"af5d6c87-ce79-4af3-b0b6-7f177e3da46d"}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 201
+    
+        URL: /boards/af5d6c87-ce79-4af3-b0b6-7f177e3da46d/tasks
+    
+        Body:
+        {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"a058f77e-85fe-45aa-bf0d-4790ee44e91e","boardId":"af5d6c87-ce79-4af3-b0b6-7f177e3da46d"}
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /users/a058f77e-85fe-45aa-bf0d-4790ee44e91e
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/af5d6c87-ce79-4af3-b0b6-7f177e3da46d/tasks/7093b8af-5cc1-4f9a-b37a-15436daf748d
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/af5d6c87-ce79-4af3-b0b6-7f177e3da46d/tasks/d2606ef8-1936-4ada-a6f5-c643d76fdc40
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/af5d6c87-ce79-4af3-b0b6-7f177e3da46d/tasks/7093b8af-5cc1-4f9a-b37a-15436daf748d
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/af5d6c87-ce79-4af3-b0b6-7f177e3da46d/tasks/d2606ef8-1936-4ada-a6f5-c643d76fdc40
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 200
+    
+        URL: /boards/af5d6c87-ce79-4af3-b0b6-7f177e3da46d
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        

@@ -1,5 +1,16 @@
 # RS School REST service
 
+Install docker
+
+Copy this repository (if you need more detailed instructions, see below)
+
+For running application type in command line in app directory
+
+```
+docker-compose up
+```
+
+
 ## Prerequisites
 
 - Git - [Download & Install Git](https://git-scm.com/downloads).
@@ -17,10 +28,16 @@ git clone {repository URL}
 npm install
 ```
 
-## Running application
+## Running application without Docker
 
 ```
-npm start
+npm run start
+```
+
+## Running application in Docker container
+
+```
+docker-compose up
 ```
 
 After starting the app on port (4000 as default) you can open
@@ -34,30 +51,9 @@ After application running open new terminal and enter:
 To run all tests without authorization
 
 ```
-npm test
+npm run test
 ```
 
-To run only one of all test suites (users, boards or tasks)
-
-```
-npm test <suite name>
-```
-
-To run all test with authorization
-
-```
-npm run test:auth
-```
-
-To run only specific test suite with authorization (users, boards or tasks)
-
-```
-npm run test:auth <suite name>
-```
-
-## Development
-
-If you're using VSCode, you can get a better developer experience from integration with [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extensions.
 
 ### Auto-fix and format
 
@@ -68,5 +64,3 @@ npm run lint
 ### Debugging in VSCode
 
 Press <kbd>F5</kbd> to debug.
-
-For more information, visit: https://code.visualstudio.com/docs/editor/debugging

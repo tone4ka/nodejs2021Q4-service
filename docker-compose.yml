@@ -6,9 +6,9 @@ services:
       - .env
     image: my-rss-docker
     build: .
-    volumes:
-      - /usr/app
-      - /usr/app/node_modules
+    volumes: 
+      - ./src:$SRC_VOLUME
+      - ./logs:$LOGS_VOLUME
     ports:
       - "$PORT:$PORT"
     command: npm run dev

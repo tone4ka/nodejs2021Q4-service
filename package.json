@@ -10,7 +10,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "npm run build && node build/server.js",
-    "dev": "nodemon --config nodemon.json src/server.ts",
+    "dev": "nodemon --config nodemon.json --legacy-watch --exitcrash src/server.ts",
     "build": "tsc -p tsconfig.json",
     "lint": "eslint --ext .js,.ts --fix src/",
     "test": "cross-env DEBUG=rs:* jest --testMatch \"<rootDir>/test/e2e/test/*.test.js\" --noStackTrace --runInBand",

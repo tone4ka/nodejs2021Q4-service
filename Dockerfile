@@ -1,7 +1,5 @@
 FROM node:lts-alpine
 
-EXPOSE $PORT
-
 WORKDIR /usr/app
 
 COPY package*.json .
@@ -9,6 +7,8 @@ COPY package*.json .
 RUN npm i
 
 COPY . .
+
+EXPOSE $PORT
 
 CMD ["npm","run", "dev"]
 

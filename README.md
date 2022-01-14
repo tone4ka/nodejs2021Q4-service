@@ -9,6 +9,12 @@ For running application type in command line in app directory
 ```
 docker-compose up
 ```
+For running tests in the container type in new conole
+
+```docker exec -i -t <Container ID> sh
+npm run test```
+
+For closing a terminal in the container type exit.
 
 
 ## Prerequisites

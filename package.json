@@ -51,12 +51,15 @@
     "cross-env": "7.0.3",
     "dotenv": "10.0.0",
     "fastify": "^3.24.1",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
     "tslint": "^5.20.1",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
+    "typeorm": "^0.2.41",
     "uuid": "^8.3.2",
-    "yamljs": "0.3.0",
-    "nodemon": "^2.0.15"
+    "yamljs": "0.3.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.12",

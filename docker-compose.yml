@@ -10,10 +10,14 @@ services:
     volumes:
       - databsedata:$DATABASE_VOLUME
     ports:
+      - 11543:$DATABASE_PORT
+    expose:
       - "$DATABASE_PORT"
+    hostname: postgres
     environment:
       - POSTGRES_PASSWORD=$DATABASE_PASSWORD
       - POSTGRES_USER=$DATABASE_USER
+      - POSTGRES_DB=test
     deploy:
       restart_policy:
         condition: on-failure

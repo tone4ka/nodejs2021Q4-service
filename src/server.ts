@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+import { createConnection } from 'typeorm';
 import config from'./common/config';
 import server from './fastifyApp';
 import Logger from './logging/logger';
@@ -21,5 +23,10 @@ const start = async (port: string | number): Promise<void>  => {
     process.exit(1);
   }
 };
-start(PORT || 3000);
+
+
+createConnection().then(async(/* connection */) => {
+  start(PORT || 3000);
+}).catch(err => console.log(err))
+
 

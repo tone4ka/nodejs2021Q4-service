@@ -32,7 +32,7 @@ services:
     build: .
     volumes:
       - logs:$LOGS_VOLUME
-      - .:$SRC_VOLUME
+      - ./src:$SRC_VOLUME
     ports:
       - "$PORT:$PORT"
     deploy:

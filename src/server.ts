@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import config from'./common/config';
 import server from './fastifyApp';
-import Logger from './logging/logger';
+import Logger from './logging/logger'
 
 const logger = new Logger();
 

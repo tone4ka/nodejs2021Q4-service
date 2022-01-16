@@ -41,6 +41,8 @@
 		"import/no-unresolved":"off",
     "@typescript-eslint/no-explicit-any": "error",
     "class-methods-use-this": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "no-await-in-loop": "off",
+    "no-restricted-syntax": "off"
   }
 }

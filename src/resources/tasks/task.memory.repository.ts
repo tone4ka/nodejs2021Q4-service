@@ -1,20 +1,28 @@
-import Task from './task.model';
-
-const tasks: Task[] = [];
+import {getRepository} from "typeorm";
+import Task from "./task.entity";
 
 /**
  *Returns an array that contains of the saved Task objects for this board
  * @param boardId string
  * @returns an array that contains of the saved Task objects for this board
  */
-const getAll = (boardId: string | undefined): Task[] => tasks.filter((task) => task.boardId === boardId);
+const getAll =  async (boardId: string): Promise<Task[]> => {
+  const repo = getRepository(Task);
+  const tasks = await repo.find({boardId});
+  console.log(tasks)
+  return tasks;
+};
 
 /**
  * Returns an array that contains of the saved Task objects assigned to this user
  * @param userId string
  * @returns an array that contains of the saved Task objects assigned to this user
  */
-const getAllusersTasks = (userId: string | undefined): Task[] => tasks.filter((task) => task.userId === userId);
+const getAllusersTasks =  async (userId: string): Promise<Task[] | void> => {
+  const repo = getRepository(Task);
+  const tasks = await repo.find({userId});
+  return tasks;
+};
 
 /**
  * 
@@ -22,10 +30,11 @@ const getAllusersTasks = (userId: string | undefined): Task[] => tasks.filter((t
  * @param task task data object
  * @returns Task object
  */
-const save = (data: Task): Task => {
-  const newTask = data as Task;
-  tasks.push(newTask);
-  return newTask as Task;
+const save = async (data: Task): Promise<Task> => {
+  const repo = getRepository(Task);
+  const task = repo.create(data);
+  await repo.save(task);
+  return task;
 };
 
 /**
@@ -33,9 +42,11 @@ const save = (data: Task): Task => {
  * @param taskId string
  * @returns required task from data base or undefined if it isn't
  */
-const get = (taskId: string | undefined): Task | void => {
-  const requiredTask = tasks.find((task) => task.id === taskId);
-  return requiredTask;
+const get = async (taskId: string): Promise<Task | void> => {
+  const repo = getRepository(Task)
+  const task = await repo.findOne(taskId);
+  console.log(task)
+  return task;
 };
 
 /**
@@ -44,29 +55,21 @@ const get = (taskId: string | undefined): Task | void => {
  * @param newTaskData new task data object
  * @returns updated task if it is in database or undefined if it isn't
  */
-const update = (taskId: string | undefined, newTaskData: Task): Task | void => {
-  const requiredTask = tasks.find((task) => task.id === taskId);
-  if(requiredTask){
-    requiredTask.id = newTaskData.id;
-    requiredTask.title = newTaskData.title;
-    requiredTask.description = newTaskData.description;
-    requiredTask.userId = newTaskData.userId;
-    requiredTask.boardId = newTaskData.boardId;
-    requiredTask.columnId = newTaskData.columnId;
-    requiredTask.order = newTaskData.order;
-  }
-  return requiredTask;
+const update = async (taskId: string | undefined, newTaskData: Task): Promise<Task | void> => {
+  const repo = getRepository(Task);
+  if(!taskId) return undefined
+    const updatedTask = await repo.update(taskId, newTaskData);
+    console.log(updatedTask)
+    return updatedTask.raw;
 };
 
 /**
  * Removes a task from the database
  * @param taskId string
  */
-const remove = (taskId: string | undefined): void => {
-  const index = tasks.findIndex((task) => task.id === taskId);
-  if (index > -1) {
-    tasks.splice(index, 1);
-  }
+const remove = async (task: Task): Promise<void> => {
+  const repo = getRepository(Task);
+  await repo.remove(task)
 };
 
 export { getAll, save, get, update, remove, getAllusersTasks };

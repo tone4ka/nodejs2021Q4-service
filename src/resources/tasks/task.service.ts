@@ -1,12 +1,12 @@
 import * as tasksRepo from './task.memory.repository';
-import Task from './task.model';
+import Task from '../tasks/task.entity';
 
 /**
  *Returns an array that contains of the saved Task objects for this board
  * @param boardId string
  * @returns an array that contains of the saved Task objects for this board
  */
-const getAll = (boardId: string): Task[] => tasksRepo.getAll(boardId);
+const getAll = (boardId: string): Promise<Task[]> => tasksRepo.getAll(boardId);
 
 /**
  * Returns an array that contains of the saved Task objects assigned to this user
@@ -20,14 +20,14 @@ const getAllusersTasks = (userId: string) => tasksRepo.getAllusersTasks(userId);
  * @param task task data object
  * @returns Task object
  */
-const save = (task: Task): Task => tasksRepo.save(new Task(task));
+const save = (task: Task): Promise<Task> => tasksRepo.save(task);
 
 /**
  * Returns required task from data base
  * @param taskId string
  * @returns required task from data base or undefined if it isn't
  */
-const get = (taskId: string): Task | void => tasksRepo.get(taskId);
+const get = (taskId: string): Promise<Task | void> => tasksRepo.get(taskId);
 
 /**
  * Updates task in data base with new data
@@ -35,12 +35,12 @@ const get = (taskId: string): Task | void => tasksRepo.get(taskId);
  * @param newTaskData new task data object
  * @returns updated task if it is in database or undefined if it isn't
  */
-const update = (taskId: string, newTaskData: Task): Task | void => tasksRepo.update(taskId, newTaskData);
+const update = (taskId: string | undefined, newTaskData: Task): Promise<Task | void> => tasksRepo.update(taskId, newTaskData);
 
 /**
  * Removes a task from the database
  * @param taskId string
  */
-const remove = (taskId: string): void => tasksRepo.remove(taskId);
+const remove = (task: Task): Promise<void> => tasksRepo.remove(task);
 
 export { getAll, save, get, update, remove, getAllusersTasks };

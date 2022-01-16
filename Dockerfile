@@ -4,7 +4,7 @@ WORKDIR /usr/app
 
 COPY package*.json .
 
-RUN npm install --no-optional && npm cache clean --force
+RUN npm install --no-optional --only=production && npm cache clean --force
 
 COPY . .
 

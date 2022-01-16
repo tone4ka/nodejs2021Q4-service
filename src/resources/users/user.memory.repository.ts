@@ -1,22 +1,30 @@
-import User from './user.model';
+import {getRepository} from "typeorm";
+import User from "./user.entity";
 
-const users: User[] = [];
-
+function getUserPublicData(user: User) {
+  const {id, name, login} = user
+  return {id, name, login}
+}
 /**
  * Returns an array that contains of the saved User objects
  * @returns an array that contains of the saved User objects
  */
-const getAll = (): User[] => users;
+const getAll =  async (): Promise<Omit<User, 'password'>[] | void> => {
+  const repo = getRepository(User);
+  const users = await repo.find();
+  return users.map((user) => getUserPublicData(user));
+};
 
 /**
  * Saves new user in data base
  * @param data user data object
  * @returns User object
  */
-const save = (data: User): User => {
-  const newUser = new User(data);
-  users.push(newUser);
-  return newUser;
+const save = async (data: User): Promise<Omit<User, 'password'>> => {
+  const repo = getRepository(User);
+  const newUser = repo.create(data);
+  await repo.save(newUser);
+  return getUserPublicData(newUser)
 };
 
 /**
@@ -24,9 +32,11 @@ const save = (data: User): User => {
  * @param userId string
  * @returns required user if it is in data base or undefined if it isn't
  */
-const get = (userId: string | undefined): User | void => {
-  const requiredUser = users.find((user) => user.id === userId);
-  return requiredUser;
+const get = async (userId: string): Promise<Omit<User, 'password'> | void> => {
+  const repo = getRepository(User)
+  const user = await repo.findOne(userId)
+  if (user) return getUserPublicData(user);
+  return user;
 };
 
 /**
@@ -36,26 +46,19 @@ const get = (userId: string | undefined): User | void => {
  * @param newUserData new user data object
  * @returns updated user if it is in data base or undefined if it isn't
  */
-const update = (userId: string | undefined, newUserData: User): User | void => {
-  const requiredUser = users.find((user) => user.id === userId);
-  if(requiredUser){
-    requiredUser.id = newUserData.id;
-    requiredUser.name = newUserData.name;
-    requiredUser.login = newUserData.login;
-    requiredUser.password = newUserData.password;
-  }
-  return requiredUser;
-};
+const update = async (userId: string, newUserData: User): Promise<Omit<User, 'password'> | void> => {
+  const repo = getRepository(User);
+    const updatedUser = await repo.update(userId, newUserData);
+    return getUserPublicData(updatedUser.raw);
+}
 
 /**
  * Removes a user from the database
  * @param userId string
  */
-const remove = (userId: string | undefined): void => {
-  const index = users.findIndex((user) => user.id === userId);
-  if (index > -1) {
-    users.splice(index, 1);
-  }
+const remove = async (userId: string): Promise<void> => {
+  const repo = getRepository(User);
+  await repo.delete(userId)
 };
 
 export { getAll, save, get, update, remove };

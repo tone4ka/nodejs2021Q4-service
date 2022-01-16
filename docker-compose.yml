@@ -8,15 +8,15 @@ services:
     networks:
       - custom
     volumes:
-      - databsedata:$DATABASE_VOLUME
+      - databsedata:$POSTGRES_DATA
     ports:
-      - 11543:$DATABASE_PORT
+      - 11543:$POSTGRES_PORT
     expose:
-      - "$DATABASE_PORT"
+      - "$POSTGRES_PORT"
     hostname: postgres
     environment:
-      - POSTGRES_PASSWORD=$DATABASE_PASSWORD
-      - POSTGRES_USER=$DATABASE_USER
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_USER=$POSTGRES_USER
       - POSTGRES_DB=test
     deploy:
       restart_policy:
@@ -25,14 +25,14 @@ services:
     env_file:
       - .env
     image: my-rss-docker
+    build: .
     networks:
       - custom
     depends_on:
       - database
-    build: .
     volumes:
       - logs:$LOGS_VOLUME
-      - ./src:$SRC_VOLUME
+      - .:$SRC_VOLUME
     ports:
       - "$PORT:$PORT"
     deploy:

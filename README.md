@@ -4,15 +4,19 @@ Install docker
 
 Copy this repository (if you need more detailed instructions, see below)
 
-For running application type in command line in app directory
+For running application and auto runing migration type in command line in app directory
 
 ```
 docker-compose up
 ```
-For running tests in the container type in new conole
+For running tests in the container type in new console
 
-```docker exec -i -t <Container ID> sh
-npm run test```
+```
+docker container ls 
+//copy Container_ID of the container which has image my-rss-docker
+docker exec -i -t Container_ID sh
+npm run test
+```
 
 For closing a terminal in the container type exit.
 

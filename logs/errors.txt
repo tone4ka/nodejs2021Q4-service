@@ -1,0 +1,85 @@
+
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/a1325d34-2583-4e5b-ae98-c8424cf8d26b
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/dc690518-daf7-4657-847e-600331f3f396/tasks/934da017-70e0-4375-b9c0-dd59fee60027
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/dc690518-daf7-4657-847e-600331f3f396/tasks/9f6d1ea5-d958-41b2-b5d5-60c4583bdfc1
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/dc690518-daf7-4657-847e-600331f3f396/tasks/b7ea5b0e-56f4-40f9-a8f5-ef742066be6d
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/dc690518-daf7-4657-847e-600331f3f396/tasks/8889a765-515f-4b62-85fa-3ff77cbe27d7
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/dc690518-daf7-4657-847e-600331f3f396/tasks/9e7e4ea8-f9a3-408f-bd4b-0f9ea78dcdfc
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        
+        ---------------------
+        Response status code: 404
+    
+        URL: /boards/470bae83-63d9-4ee2-a0fc-4c92bfc0b744/tasks/92f9fdc0-2bdf-4964-b823-c5047091b13c
+    
+        Body:
+        null
+    
+        Query parameters:
+        {}
+        ---------------------
+        

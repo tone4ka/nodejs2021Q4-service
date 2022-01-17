@@ -31,7 +31,7 @@ const taskRouter: FastifyPluginAsync = async (fastify) => {
     }
     const data = request.body as Task;
     data.boardId = boardId;
-    const task = tasksService.save(data);
+    const task = await tasksService.save(data);
     reply.code(201).send(task);
   });
   fastify.get('/:id', async (request, reply) => {
@@ -65,7 +65,7 @@ const taskRouter: FastifyPluginAsync = async (fastify) => {
     if (!task) {
       throw new MyError('No task with this ID found', 404);
     }
-    if (task) tasksService.remove(task);
+    if (task) await tasksService.remove(task);
     reply.code(200).send({ Success: 'task deleted' });
   });
   fastify.put('/:id', async (request, reply) => {
@@ -84,7 +84,7 @@ const taskRouter: FastifyPluginAsync = async (fastify) => {
     }
     const newTaskData = request.body as Task;
     newTaskData.boardId = boardId
-    const apdatedTask = tasksService.update(id, newTaskData);
+    const apdatedTask = await tasksService.update(id, newTaskData);
     if(apdatedTask) {
       reply.send({ ...apdatedTask });
     }     

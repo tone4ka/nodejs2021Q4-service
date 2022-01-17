@@ -6,7 +6,7 @@ import Task from "./task.entity";
  * @param boardId string
  * @returns an array that contains of the saved Task objects for this board
  */
-const getAll =  async (boardId: string): Promise<Task[]> => {
+const getAll =  async (boardId: string | undefined): Promise<Task[]> => {
   const repo = getRepository(Task);
   const tasks = await repo.find({boardId});
   console.log(tasks)
@@ -28,13 +28,13 @@ const getAllusersTasks =  async (userId: string): Promise<Task[] | void> => {
  * 
  * Saves new task in data base
  * @param task task data object
- * @returns Task object
+ * @returns Task objects
  */
 const save = async (data: Task): Promise<Task> => {
   const repo = getRepository(Task);
-  const task = repo.create(data);
-  await repo.save(task);
-  return task;
+  // const task = repo.create(data);
+  await repo.save(data);
+  return data;
 };
 
 /**
@@ -55,12 +55,15 @@ const get = async (taskId: string): Promise<Task | void> => {
  * @param newTaskData new task data object
  * @returns updated task if it is in database or undefined if it isn't
  */
-const update = async (taskId: string | undefined, newTaskData: Task): Promise<Task | void> => {
+const update = async (taskId: string, newTaskData: Task): Promise<Task | void> => {
   const repo = getRepository(Task);
-  if(!taskId) return undefined
     const updatedTask = await repo.update(taskId, newTaskData);
-    console.log(updatedTask)
     return updatedTask.raw;
+};
+
+const updateUserId = async (userId: string, newUserId: string | null): Promise<void> => {
+  const repo = getRepository(Task);
+  await repo.update({userId}, {userId: newUserId});
 };
 
 /**
@@ -72,4 +75,4 @@ const remove = async (task: Task): Promise<void> => {
   await repo.remove(task)
 };
 
-export { getAll, save, get, update, remove, getAllusersTasks };
+export { getAll, save, get, update, remove, getAllusersTasks,  updateUserId};

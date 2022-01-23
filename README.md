@@ -9,13 +9,13 @@ For running application and auto runing migration type in command line in app di
 ```
 docker-compose up
 ```
-For running tests in the container type in new console
+For running aythentification tests in the container type in new console
 
 ```
 docker container ls 
-//copy Container_ID of the container which has image my-rss-docker
-docker exec -i -t Container_ID sh
-npm run test
+//copy ID of the container which has image my-rss-docker
+docker exec -i -t ID sh
+npm run test:auth
 ```
 
 For closing a terminal in the container type exit.

@@ -6,6 +6,8 @@ Copy this repository (if you need more detailed instructions, see below)
 
 For running application and auto runing migration type in command line in app directory
 
+Switch to the auth branch
+
 ```
 docker-compose up
 ```

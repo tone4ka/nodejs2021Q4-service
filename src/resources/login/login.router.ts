@@ -24,7 +24,11 @@ interface AuthData {
                 const areSame = await bcrypt.compare(data.password, isThereAnUserInTheDatabase.password);
                 if(!areSame) throw new MyError("invalid password", 401);
 
-                const token = jwt.sign(data, secretKey);
+                const token = jwt.sign({
+                    userId: isThereAnUserInTheDatabase.id,
+                    login:data.login
+                }, secretKey);
+                
                 reply.code(201).send({ token });
             } else {
                 throw new MyError("there is no user with this login in the database", 403);

@@ -18,6 +18,12 @@ docker exec -i -t ID sh
 npm run test:auth
 ```
 
+For running aythentification tests outside the container type in new console
+
+```
+npm run test:auth
+```
+
 For closing a terminal in the container type exit.
 
 

@@ -16,8 +16,6 @@ interface AuthData {
 
  const loginRouter: FastifyPluginAsync = async (fastify) => {
     fastify.post('/', async (req, reply) => {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-        console.log(req.body);
         const secretKey: string = JWT_SECRET_KEY ? JWT_SECRET_KEY : 'secret-key';
         const data: AuthData["authData"] = req.body as AuthData["authData"]
         if(req.body){

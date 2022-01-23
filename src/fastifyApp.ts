@@ -17,6 +17,7 @@ const server: FastifyInstance = Fastify({});
 
 server.addHook('preHandler', async (req) => {
   const url: string = req.url;
+  
   if (url !== '/' && url !== '/doc' && url !== '/login') {
     const authorizationHeader = req.headers.authorization;
     if(!authorizationHeader) throw new MyError('token not found', 401);

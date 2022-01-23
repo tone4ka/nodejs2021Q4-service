@@ -1,8 +1,11 @@
 import 'reflect-metadata';
-import { createConnection } from 'typeorm';
+import { createConnection, getRepository } from 'typeorm';
 import config from'./common/config';
 import server from './fastifyApp';
-import Logger from './logging/logger'
+import Logger from './logging/logger';
+import  * as usersService from './resources/users/user.service';
+import User from "./resources/users/user.entity";
+
 
 const logger = new Logger();
 
@@ -16,6 +19,14 @@ const logger = new Logger();
 const start = async (port: string | number): Promise<void>  => {
   try {
     await server.listen(port, '0.0.0.0');
+    const userData = {
+      name: "Vasily",
+      login: 'admin',
+      password: 'admin'
+    }
+    const repo = getRepository(User)
+    const isThereAnAdminInTheDatabase = await repo.findOne({login: 'admin'});
+    if(!isThereAnAdminInTheDatabase) await usersService.save(userData as User);
     console.log(`App is running on http://localhost:${port}`);
   } catch (err) {
     logger.printProcessError('Something went wrong');
@@ -26,7 +37,7 @@ const start = async (port: string | number): Promise<void>  => {
 
 
 createConnection().then(async(/* connection */) => {
-  start(PORT || 3000);
+  await start(PORT || 3000);
 }).catch(err => console.log(err))
 
 

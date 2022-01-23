@@ -44,6 +44,9 @@
     "no-console": "off",
     "no-await-in-loop": "off",
     "no-restricted-syntax": "off",
-    "no-return-await": "off"
+    "no-return-await": "off",
+    "prefer-destructuring": "off",
+    "no-unneeded-ternary": "off"
+
   }
 }

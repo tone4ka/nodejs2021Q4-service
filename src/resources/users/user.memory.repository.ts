@@ -1,4 +1,5 @@
 import {getRepository} from "typeorm";
+import bcrypt from 'bcryptjs';
 import User from "./user.entity";
 
 function getUserPublicData(user: User) {
@@ -21,8 +22,14 @@ const getAll =  async (): Promise<Omit<User, 'password'>[] | void> => {
  * @returns User object
  */
 const save = async (data: User): Promise<Omit<User, 'password'>> => {
+  const hashPassword = await bcrypt.hash(
+    data.password,
+    10 
+  );
+  const dataWithHash = {...data};
+  dataWithHash.password = hashPassword
   const repo = getRepository(User);
-  const newUser = repo.create(data);
+  const newUser = repo.create(dataWithHash);
   await repo.save(newUser);
   return getUserPublicData(newUser)
 };
@@ -36,6 +43,13 @@ const get = async (userId: string): Promise<Omit<User, 'password'> | void> => {
   const repo = getRepository(User)
   const user = await repo.findOne(userId)
   if (user) return getUserPublicData(user);
+  return user;
+};
+
+const getByLogin = async (login: string): Promise<User | void> => {
+  const repo = getRepository(User)
+  const user = await repo.findOne({login})
+  if (user) return user;
   return user;
 };
 
@@ -61,4 +75,4 @@ const remove = async (userId: string): Promise<void> => {
   await repo.delete(userId)
 };
 
-export { getAll, save, get, update, remove };
+export { getAll, save, get, update, remove, getByLogin };

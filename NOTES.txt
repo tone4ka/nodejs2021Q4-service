@@ -2,3 +2,7 @@ npm run typeorm migration:run
 npm run typeorm migration:generate -- -n DBMigration
 
 
+добавить проверку токена в фастифай апп в хуке онсенд: если токена нет или неверный то 401!!!!!!!!!!
+проверить, правильный ли код на ройтах /, /doc, /login!!!!!!!!!
+
+

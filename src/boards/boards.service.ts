@@ -1,5 +1,5 @@
 import { TasksService } from './../tasks/tasks.service';
-import { Inject, forwardRef, Injectable } from '@nestjs/common';
+import { HttpException, Inject, forwardRef, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateBoardDto } from './dto/create-board.dto';
@@ -27,6 +27,9 @@ export class BoardsService {
 
   async findOne(id: string) {
     const board = await this.boardsRepository.findOne(id);
+    if (!board) {
+      throw new HttpException('No board with this ID found', 404);
+    }
     return board;
   }
 

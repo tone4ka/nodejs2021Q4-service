@@ -1,6 +1,7 @@
 npm run typeorm migration:run
 npm run typeorm migration:generate -- -n DBMigration
 
+ДОБАВИТЬ АДМИНА В БАЗУ ПРИ ЗАПУСКЕ!!!!!!!!!!!!!!!!!!!!!1
 Добавить ошибку при пустом айди таски???
 Logger!!!!!!!!!!!!!!!!!!!!!!
 Docker

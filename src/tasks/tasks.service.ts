@@ -20,6 +20,7 @@ export class TasksService {
     if (!board) {
       throw new HttpException('No board with this ID found', 404);
     }
+    createTaskDto.boardId = boardId;
     const task = await this.tasksRepository.save(createTaskDto);
     return task;
   }

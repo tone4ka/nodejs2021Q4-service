@@ -2,3 +2,7 @@ npm run typeorm migration:run
 npm run typeorm migration:generate -- -n DBMigration
 
 Добавить ошибку при пустом айди таски???
+Logger!!!!!!!!!!!!!!!!!!!!!!
+Docker
+migration
+files resource

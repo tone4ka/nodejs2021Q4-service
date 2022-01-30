@@ -40,6 +40,7 @@ export class TasksService {
       throw new HttpException('No board with this ID found', 404);
     }
     const task = await this.tasksRepository.findOne(id);
+    if (!task)  throw new HttpException('No task with this ID found', 404);
     return task;
   }
 

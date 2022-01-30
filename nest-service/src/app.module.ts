@@ -7,7 +7,7 @@ import { UsersModule } from './users/users.module';
 import { BoardsModule } from './boards/boards.module';
 import { ColumnsModule } from './columns/columns.module';
 import { TasksModule } from './tasks/tasks.module';
-import { LoginModule } from './login/login.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -27,7 +27,7 @@ import { LoginModule } from './login/login.module';
     // migrationsRun: true,
     logging: true,
     // migrations: ['src/database/migrations/*.ts'],
-  }), UsersModule, BoardsModule, ColumnsModule, TasksModule, LoginModule,
+  }), UsersModule, BoardsModule, ColumnsModule, TasksModule, AuthModule,
 ],
   controllers: [/* AppController */],
   providers: [/* AppService */],

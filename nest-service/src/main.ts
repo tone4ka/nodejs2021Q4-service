@@ -7,5 +7,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen( PORT || 3000);
   console.log(`App is running on http://localhost:${PORT}`)
+  // добавить админа в базу!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 }
 bootstrap();

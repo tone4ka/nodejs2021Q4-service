@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+import { TasksService } from './../tasks/tasks.service';
+import { Inject, forwardRef, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcryptjs';
 import { Repository } from 'typeorm';
@@ -16,6 +17,8 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
+    @Inject(forwardRef(() => TasksService))
+    private tasksService: TasksService
   ) {}
 
   async create(createUserDto: CreateUserDto) {
@@ -38,6 +41,11 @@ export class UsersService {
     return getUserPublicData(user);
   }
 
+  async findByLogin(login: string) {
+    const user = await this.usersRepository.findOne({login});
+    return user;
+  }
+
   async update(id: string, updateUserDto: UpdateUserDto) {
     const newUserData = updateUserDto;
     const hashPassword = await bcrypt.hash(
@@ -51,6 +59,7 @@ export class UsersService {
   }
 
   async remove (id: string) {
+    await this.tasksService.updateUserId(id, null)
     await this.usersRepository.delete(id);
     return `User ${id} has been deleted`;
   }

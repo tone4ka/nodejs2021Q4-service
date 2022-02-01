@@ -4,10 +4,6 @@ npm run typeorm migration:generate -- -n DBMigration
 artillery run my_load_tests.yml -o report.json
 artillery report report.json
 
-ДОБАВИТЬ АДМИНА В БАЗУ ПРИ ЗАПУСКЕ!!!!!!!!!!!!!!!!!!!!!1
-Добавить ошибку при пустом айди таски???
 Logger!!!!!!!!!!!!!!!!!!!!!!
-Docker
-migration
 files resource
-не установила постгрес хост
+почему так долго запускается контейнер сервера???

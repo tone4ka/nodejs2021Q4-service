@@ -13,3 +13,4 @@ doc
 .eslintignore
 .prettierrc
 .eslintrc.json
+dist

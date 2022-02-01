@@ -10,7 +10,7 @@ services:
     volumes:
       - databsedata:$POSTGRES_DATA
     ports:
-      - ${POSTGRES_PORT}
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
     hostname: ${TYPEORM_HOST}
     expose:
       - ${POSTGRES_PORT}

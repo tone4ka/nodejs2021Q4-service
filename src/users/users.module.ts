@@ -1,7 +1,7 @@
-import { TasksModule } from './../tasks/tasks.module';
-import { AuthModule } from './../auth/auth.module';
 import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TasksModule } from "../tasks/tasks.module";
+import { AuthModule } from "../auth/auth.module";
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import User from './entities/user.entity'

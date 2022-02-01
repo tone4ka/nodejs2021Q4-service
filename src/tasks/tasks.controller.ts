@@ -2,7 +2,7 @@ import { UseGuards, Controller, Get, Post, Body, Put, Param, Delete } from '@nes
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
-import { JwtAuthGuard } from './../auth/jwt-auth.guard';
+import { JwtAuthGuard } from "../auth/jwt-auth.guard";
 
 
 @Controller('boards/:boardId/tasks')

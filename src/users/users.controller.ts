@@ -1,5 +1,5 @@
-import { JwtAuthGuard } from './../auth/jwt-auth.guard';
 import { UseGuards, Controller, Get, Post, Body, Param, Delete, Put, UsePipes } from '@nestjs/common';
+import { JwtAuthGuard } from "../auth/jwt-auth.guard";
 import { UsersService } from './users.service';
 import CreateUserDto from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';

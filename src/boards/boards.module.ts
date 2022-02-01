@@ -1,9 +1,9 @@
-import { TasksModule } from './../tasks/tasks.module';
 import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TasksModule } from "../tasks/tasks.module";
 import { BoardsService } from './boards.service';
 import { BoardsController } from './boards.controller';
-import { AuthModule } from './../auth/auth.module';
+import { AuthModule } from "../auth/auth.module";
 import Board from './entities/board.entity'
 
 

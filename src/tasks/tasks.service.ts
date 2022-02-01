@@ -1,7 +1,7 @@
-import { BoardsService } from './../boards/boards.service';
 import { Inject, forwardRef, HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { BoardsService } from "../boards/boards.service";
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import Task from './entities/task.entity'
@@ -56,7 +56,7 @@ export class TasksService {
 
   async updateUserId(userId: string, newUserId: string | null) {
     await this.tasksRepository.update({userId}, {userId: newUserId});
-  };
+  }
 
   async remove(id: string, boardId: string) {
     const board = await this.boardsService.findOne(boardId);

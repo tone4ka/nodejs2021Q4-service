@@ -1,8 +1,8 @@
-import { TasksService } from './../tasks/tasks.service';
 import { Inject, forwardRef, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcryptjs';
 import { Repository } from 'typeorm';
+import { TasksService } from "../tasks/tasks.service";
 import CreateUserDto from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import User from './entities/user.entity'

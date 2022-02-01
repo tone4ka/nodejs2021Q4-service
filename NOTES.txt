@@ -7,3 +7,4 @@ Logger!!!!!!!!!!!!!!!!!!!!!!
 Docker
 migration
 files resource
+не установила постгрес хост

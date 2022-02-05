@@ -1,0 +1,65 @@
+config:
+  target: 'http://localhost:4000'
+  phases:
+   - duration: 60
+     arrivalRate: 3
+scenarios:
+ - flow:
+   - log: "Getting token"
+   - post:
+      url: "/login"
+      json:
+        login: "admin"
+        password: "admin"
+      capture:
+       json: "$.token"
+       as: token
+      expect:
+        - statusCode: 201
+   - log: "Getting all users"
+   - get:
+      headers:
+        Authorization: 'Bearer {{ token }}'
+      url: "/users"
+      expect:
+        - statusCode: 200
+   - log: "Creation new user"
+   - post:
+      headers:
+        Authorization: 'Bearer {{ token }}'
+      url: "/users"
+      json:
+        login: "admin"
+        password: "admin"
+        name: "admin"
+      capture:
+       json: "$.id"
+       as: user_id
+      expect:
+        - statusCode: 201
+   - log: 'Cet data of user with id:{{ user_id }}'
+   - get:
+      headers:
+        Authorization: 'Bearer {{ token }}'
+      url: '/users/{{ user_id }}'
+      expect:
+        - statusCode: 200
+   - log: 'Update data for user with id:{{ user_id }}'
+   - put:
+      headers:
+        Authorization: 'Bearer {{ token }}'
+      url: '/users/{{ user_id }}'
+      json:
+        login: "admin"
+        password: "admin"
+        name: "admin123"
+      expect:
+        - statusCode: 200
+   - log: 'Deletion user with id:{{ user_id }}'
+   - delete:
+      headers:
+        Authorization: 'Bearer {{ token }}'
+      url: '/users/{{ user_id }}'
+      expect:
+        - statusCode: 200
+    

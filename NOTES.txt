@@ -1,0 +1,9 @@
+npm run typeorm migration:run
+npm run typeorm migration:generate -- -n DBMigration
+
+artillery run my_load_tests.yml -o report.json
+artillery report report.json
+
+Logger!!!!!!!!!!!!!!!!!!!!!!
+files resource
+почему так долго запускается контейнер сервера???

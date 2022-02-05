@@ -1,22 +1,22 @@
 # RS School REST service
 
-Install docker
+1. Install docker
 
-Copy this repository 
+2. Copy this repository 
 
 ```
 git clone {repository URL}
 ```
 
-Switch to the nestjs branch
+3. Switch to the nestjs branch
 
-For running application and auto runing migration type in command line in app directory
+4. Type in command line in app directory
 
 ```
 npm i
 ```
 
-After installing type in the command line:
+5. After installing for running application and auto runing migration type in the command line:
 
 ```
 docker-compose up
@@ -30,13 +30,13 @@ Launching the application can take up to 10 minutes!
 Please wait for the message "App is running on http://localhost:4000" in the console!
 ```
 
-For running aythentification tests type in a new console
+6. For running aythentification tests type in a new console
 
 ```
 npm run test:auth
 ```
 
-Also the linter check
+7. Also you can do the linter check
 
 ```
 npm run lint
@@ -47,6 +47,8 @@ npm run lint
 ### Fastify/Express comparison:
 
 ### You can also view test reports in files report_fastify.html and report_express.html
+
+check parameter: ................................................................ Fastify/Express
 
 http.codes.200: ................................................................ 596/720
 

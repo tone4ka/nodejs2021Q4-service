@@ -2,7 +2,11 @@
 
 Install docker
 
-Copy this repository (if you need more detailed instructions, see below)
+Copy this repository 
+
+```
+git clone {repository URL}
+```
 
 Switch to the nestjs branch
 
@@ -30,6 +34,12 @@ For running aythentification tests type in a new console
 
 ```
 npm run test:auth
+```
+
+Also the linter check
+
+```
+npm run lint
 ```
 
 ## Artillery tests results
@@ -78,57 +88,3 @@ vusers.session_length:
 
   p99: ......................................................................... 21813.5/24107.7
 
-
-## Prerequisites
-
-- Git - [Download & Install Git](https://git-scm.com/downloads).
-- Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager.
-
-## Downloading
-
-```
-git clone {repository URL}
-```
-
-## Installing NPM modules
-
-```
-npm install
-```
-
-## Running application without Docker
-
-```
-npm run start
-```
-
-## Running application in Docker container
-
-```
-docker-compose up
-```
-
-After starting the app on port (4000 as default) you can open
-in your browser OpenAPI documentation by typing http://localhost:4000/doc/.
-For more information about OpenAPI/Swagger please visit https://swagger.io/.
-
-## Testing
-
-After application running open new terminal and enter:
-
-To run all tests without authorization
-
-```
-npm run test
-```
-
-
-### Auto-fix and format
-
-```
-npm run lint
-```
-
-### Debugging in VSCode
-
-Press <kbd>F5</kbd> to debug.

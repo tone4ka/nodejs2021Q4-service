@@ -10,7 +10,7 @@ git clone {repository URL}
 
 3. Switch to the nestjs branch
 
-4. Type in command line in app directory
+4. Type in command line in the app directory
 
 ```
 npm i
